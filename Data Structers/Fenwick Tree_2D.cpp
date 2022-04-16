@@ -1,8 +1,9 @@
 /*
 Name: Fenwick Tree 2D (2D BIT)
-Description: Ranged query for 2D ranges and single cell update
+Description: Ranged query for 2D ranges and single cell update for reversable functions only
 Time: O(NM) initlize / O(LogN*LogM) update and get
 Space: O(NM)
+Resources: https://cp-algorithms.com/data_structures/fenwick.html
 */
 
 template<int SZ> struct BIT_2D{
