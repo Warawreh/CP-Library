@@ -1,7 +1,7 @@
 /*
 Name: Ordred Set
 Description: it is a set/Multiset but with indexes
-Time: O(LogN) per insert/query with small factor
+Time: O(LogN) per insert/query
 Space: O(N)
 Resources: codeforces.com/blog/entry/11080
 */

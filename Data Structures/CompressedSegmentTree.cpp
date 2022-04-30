@@ -2,7 +2,7 @@
 Name: Compressed Segment Tree
 Description: Segment tree but only create nodes for used indexes to save memory
 Time: O(NLogN) with small factor
-Space: O(4N)
+Space: O(4N)   
 */
 
 struct node{
