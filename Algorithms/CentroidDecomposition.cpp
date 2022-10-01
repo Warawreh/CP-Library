@@ -9,50 +9,50 @@ vector<int> sz;
 vector<bool> isCentroid;
 
 void dfs(int u,int p){
-   sz[u] = 1;
-   for(auto &[v,d] : g[u]){
-      if(v == p || isCentroid[v])continue;
-      dfs(v,u);
-      sz[u] += sz[v];
-   }
+    sz[u] = 1;
+    for(auto &[v,d] : g[u]){
+        if(v == p || isCentroid[v])continue;
+        dfs(v,u);
+        sz[u] += sz[v];
+    }
 }
 
 void go1(int u,int p,int val){
 
-   for(auto v : g[u]){
-      if(v == p || isCentroid[v])continue;
-   }
+    for(auto v : g[u]){
+        if(v == p || isCentroid[v])continue;
+    }
 
 }
 
 void decompose(int u){
-   dfs(u,-1);
-   int lst = -1,groupSize = sz[u];
+    dfs(u,-1);
+    int lst = -1,groupSize = sz[u];
 
-   while(true){
-      int nxt = -1;
-      for(auto &[v,d] : g[u]){
-         if(v == lst || isCentroid[v])continue;
-         if(sz[v] * 2 > groupSize){//True at most once
-            nxt = v;
-            break;
-         }
-      }
-      if(nxt == -1)break;
-      lst = u;
-      u = nxt;
-   }
+    while(true){
+        int nxt = -1;
+        for(auto &[v,d] : g[u]){
+            if(v == lst || isCentroid[v])continue;
+            if(sz[v] * 2 > groupSize){//True at most once
+                nxt = v;
+                break;
+            }
+        }
+        if(nxt == -1)break;
+        lst = u;
+        u = nxt;
+    }
 
-   isCentroid[u] = true;
+    isCentroid[u] = true;
 
-   for(auto &[v,d] : g[u]){
-      if(isCentroid[v])continue;
-      go1(v,u,d);
-      //Do work
-   }
+    for(auto &[v,d] : g[u]){
+        if(isCentroid[v])continue;
+        go1(v,u,d);
+        //Do work
+    }
 
-   for(auto &[v,d] : g[u]){
-      if(isCentroid[v])continue;
-      decompose(v);
-   }
+    for(auto &[v,d] : g[u]){
+        if(isCentroid[v])continue;
+        decompose(v);
+    }
 }
