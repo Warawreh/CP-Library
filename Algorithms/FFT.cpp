@@ -1,4 +1,9 @@
-
+/*
+Name: Fast Furior Transformation
+Description: Multiply to vectors fast
+Time: O(NlogN) 
+Space: O(4N)
+*/
 
 using cd = complex<double>;
 const double PI = acos(-1);
