@@ -1,12 +1,12 @@
 /*
 Name: Knuth–Morris–Pratt algorithm
-Description: find the number of occers of t in s
+Description: find the number of occurs of t in s
 Time: O(n) for the build O(n + m) for search
 Space: O(N) 
 Notes:
-	For intersecting occers use
+	For intersecting occurs  use
 		len = fail[len-1];
-	For non-intersecting occers use
+	For non-intersecting occurs  use
 		len = 0;
 */
 

@@ -8,10 +8,10 @@ Space: O(N)
 
 
 const int INF = 1000000000;
-vector<vector<pair<int, int>>> adj;
+vector<vector<pair<int, int>>> g;
 
 bool spfa(int s, vector<int>& d) {
-    int n = adj.size();
+    int n = g.size();
     d.assign(n, INF);
     vector<int> cnt(n, 0);
     vector<bool> inqueue(n, false);
@@ -25,7 +25,7 @@ bool spfa(int s, vector<int>& d) {
         q.pop();
         inqueue[v] = false;
 
-        for (auto edge : adj[v]) {
+        for (auto edge : g[v]) {
             int to = edge.first;
             int len = edge.second;
 
@@ -45,8 +45,7 @@ bool spfa(int s, vector<int>& d) {
 }
 
 //O(nm) solutin with printing the cycle
-void solve()
-{
+void solve(){
     vector<int> d (n, INF);
     d[v] = 0;
     vector<int> p (n, - 1);

@@ -7,8 +7,7 @@ Space: O(N)
 
 struct Trie{
 	vector<vector<int>> g;
-	vector<int> have;
-	vector<int> sz;
+	vector<int> have,sz;
 
 	int max_edge;
 
@@ -43,7 +42,6 @@ struct Trie{
 
 	void build(){
 		sz = have;
-		cout << '\n';
 		dfs(0,-1);
 	}
 

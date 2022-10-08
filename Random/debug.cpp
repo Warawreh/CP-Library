@@ -1,4 +1,3 @@
-
 #define sim template < class c
 #define ris return * this
 #define dor > dout & operator <<
