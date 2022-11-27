@@ -17,10 +17,10 @@ struct Trie{
 		have.push_back(0);
 	}
 
-	void add(int val){
+	void add(vector<int> val){
 		int cur = 0;
-		for(int k=LOG;k>=0;k--){
-			bool b = (val & (1<<k));
+		for(int k=0;k<val.size();k++){
+			int b = val[k];
 			if(g[cur][b] == -1){
 				g[cur][b] = g.size();
 				have.push_back(0);
@@ -45,16 +45,13 @@ struct Trie{
 		dfs(0,-1);
 	}
 
-	int get(int val){
+	int get(vector<int> val){
 		int res = 0;
 		int cur = 0;
-		for(int k=LOG;k>=0;k--){
-			bool b = val & (1<<k);
-			if(b == 1){
-				res += sz[0] - (g[cur][0] == -1 ? 0 :sz[g[cur][0]]);
-			}
-			if(g[cur][0] == -1)break;
-			cur = g[cur][0];
+		for(int k=0;k<val.size();k++){
+			int b = val[k];
+			
+			cur = g[cur][b];
 		}
 		return res;
 	}

@@ -16,7 +16,7 @@ indexed_set s;
 s.insert(x);//Add x to the set (duplicate is allowed)
 s.order_of_key(x);//Get the position of the first number more than or equal to x
 s.find_by_order(x);//Return a pointer to the x'th element (start from 0)
-s.erase(x);//if x is a pointer remove if exisit
+s.erase(x);//if x is a pointer remove if exist
 		   //if x is T then remove value T (this is janky  always remove with pointer)
 note:
 	less_equal<T>: allow duplicate (multiset)
