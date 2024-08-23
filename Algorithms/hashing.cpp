@@ -5,27 +5,31 @@ Time: O(NLogN) to init arrays and O(1) to get the value
 Space: O(2N) for 2 primes
 */
 
-template<int SZ> struct HASH{
-	const int mod = 1e9+7;
-	int p[2] = {31,37};
-	ll inv[2][SZ],POW[2][SZ],sum[2][SZ];
-	ll Pow(ll a,ll b){
-		if(!b)return 1;
-		ll ret = Pow(a,b/2);
-		if(b%2)return ((ret*ret)%mod*a)%mod;
-		return (ret*ret)%mod;
-	}	
-	HASH(){
-		POW[0][0] = POW[1][0] = 1;
-		inv[0][0] = inv[1][0] = Pow(POW[0][0],mod-2);
-		for(int i=1;i<SZ;i++){
-			for(int x=0;x<2;x++){
-				POW[x][i] = (POW[x][i-1] * p[x]) % mod;
-				inv[x][i] = Pow(POW[x][i],mod-2);
-			}
-		}
+const int mod = 1e9+7;
+const int SZ = 1e6;
 
-	}
+int p[2] = {31,37};
+ll inv[2][SZ],POW[2][SZ],
+int Pow(int a,int b){
+    if(!b)return 1;
+    int ret = Pow(a,b/2);
+    if(b%2)return ((ret*1LL*ret)%mod*1LL*a)%mod;
+    return (ret*1LL*ret)%mod;
+} 
+void init(){
+    POW[0][0] = POW[1][0] = 1;
+    inv[0][0] = inv[1][0] = Pow(POW[0][0],mod-2);
+    for(int i=1;i<SZ;i++){
+        for(int x=0;x<2;x++){
+            POW[x][i] = (POW[x][i-1] * 1LL * p[x]) % mod;
+            inv[x][i] = Pow(POW[x][i],mod-2);
+        }
+    }
+}
+
+template<int SZ> struct HASH{
+	int sum[2][SZ];
+	
 	void build(string s){
 		for(int i=0;i<s.size();i++){
 			for(int x=0;x<2;x++){
