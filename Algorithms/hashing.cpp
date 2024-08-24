@@ -27,7 +27,7 @@ void init(){
     }
 }
 
-template<int SZ> struct HASH{
+struct HASH{
 	int sum[2][SZ];
 	
 	void build(string s){
@@ -40,8 +40,8 @@ template<int SZ> struct HASH{
 	}
 	pair<int,int> check(int l,int r){
 		ll h1 = ((sum[0][r+1] - sum[0][l] + mod)%mod * inv[0][l])%mod;
-		ll h3 = ((sum[1][r+1] - sum[1][l] + mod)%mod * inv[1][l])%mod;
-		return {h1,h3};
+		ll h2 = ((sum[1][r+1] - sum[1][l] + mod)%mod * inv[1][l])%mod;
+		return {h1,h2};
 	}
 	bool check(int l1,int r1,int l2,int r2){
 		ll h1 = ((sum[0][r1+1] - sum[0][l1] + mod)%mod * inv[0][l1])%mod;
