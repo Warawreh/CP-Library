@@ -22,7 +22,10 @@ void init(){
     for(int i=1;i<SZ;i++){
         for(int x=0;x<2;x++){
             POW[x][i] = (POW[x][i-1] * 1LL * p[x]) % mod;
-            inv[x][i] = Pow(POW[x][i],mod-2);
+            if(i == 1)
+                inv[x][i] = Pow(POW[x][i],mod-2);
+            else
+                inv[x][i] = (inv[x][i-1] * 1LL * inv[x][1])%mod;
         }
     }
 }
