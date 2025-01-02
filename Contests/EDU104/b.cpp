@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define all(x) (x).begin(), (x).end()
+#define fast ios::sync_with_stdio(false);cin.tie(0);
+typedef long long ll;
+typedef long double ld;
+typedef unsigned long long ull;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int main(){
+	fast
+	int t;
+	cin>>t;
+	while(t--){
+		int n,k;
+		cin>>n>>k;
+		if(n % 2 ){
+			int v = n/2;
+			// cerr << k/v << '\n';
+			// cerr << v << '\n';
+			cout << (k - 1 + (k - 1)/v + n)%n + 1 << '\n';
+		}else{
+			cout << (k - 1)%n + 1 << '\n';
+		}
+	}
+}

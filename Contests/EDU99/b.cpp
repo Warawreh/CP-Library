@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define all(x) (x).begin(), (x).end()
+#define fast ios::sync_with_stdio(false);cin.tie(0);
+typedef long long ll;
+typedef long double ld;
+typedef unsigned long long ull;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int main(){
+	fast
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		int g = sqrt(n);
+		int sum = g*(g+1)/2;
+		while(sum < n){
+			g++;
+			sum += g;
+		}
+		if(sum == n)cout << g << '\n';
+		else if(sum - 1 == n)cout << g + 1 << '\n';
+		else cout << g << '\n';
+	}
+}
